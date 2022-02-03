@@ -60,8 +60,13 @@ function links_meta_box_markup($object) {
             
             <br>
 
-            <label for="meta-box-link-github">Live Project Link</label><br>
-            <input name="meta-box-link-live-project" type="url" value="<?php echo get_post_meta( get_the_ID(), "meta-box-link-live-project", true); ?>">
+            <label for="meta-box-link-demo">Demo Link</label><br>
+            <input name="meta-box-link-demo" type="url" value="<?php echo get_post_meta( get_the_ID(), "meta-box-link-live-project", true); ?>">
+
+            <br>
+
+            <label for="meta-box-link-live">Live Link</label><br>
+            <input name="meta-box-link-live" type="url" value="<?php echo get_post_meta( get_the_ID(), "meta-box-link-live", true); ?>">
         </div>
     <?php  
 }
@@ -87,6 +92,7 @@ function save_links_meta_box($post_id, $post, $update) {
 
     $meta_box_github_value = "";
     $meta_box_liveproject_value = "";
+    $meta_box_live_value = "";
 
     if(isset($_POST["meta-box-link-github"])) {
         $meta_box_github_value = $_POST["meta-box-link-github"];
@@ -97,6 +103,11 @@ function save_links_meta_box($post_id, $post, $update) {
         $meta_box_liveproject_value = $_POST["meta-box-link-live-project"];
     }   
     update_post_meta($post_id, "meta-box-link-live-project", $meta_box_liveproject_value);
+
+    if(isset($_POST["meta-box-link-live"])) {
+        $meta_box_live_value = $_POST["meta-box-link-live"];
+    }   
+    update_post_meta($post_id, "meta-box-link-live", $meta_box_live_value);
 }
 add_action("save_post", "save_links_meta_box", 10, 3);
 
