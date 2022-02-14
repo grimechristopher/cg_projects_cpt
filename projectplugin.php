@@ -61,7 +61,7 @@ function links_meta_box_markup($object) {
             <br>
 
             <label for="meta-box-link-demo">Demo Link</label><br>
-            <input name="meta-box-link-demo" type="url" value="<?php echo get_post_meta( get_the_ID(), "meta-box-link-live-project", true); ?>">
+            <input name="meta-box-link-live-project" type="url" value="<?php echo get_post_meta( get_the_ID(), "meta-box-link-live-project", true); ?>">
 
             <br>
 
